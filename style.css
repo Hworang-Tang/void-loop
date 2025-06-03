@@ -5,14 +5,13 @@ body {
   font-family: 'Press Start 2P', 'VT323', 'Courier New', Courier, monospace;
   overflow: hidden;
 }
-
 #bg-grid {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: repeating-linear-gradient(90deg, #0ff1 0 2px, transparent 2px 32px),
-              repeating-linear-gradient(0deg, #0ff1 0 2px, transparent 2px 32px),
+  background: repeating-linear-gradient(90deg, #0ff2 0 2px, transparent 2px 32px),
+              repeating-linear-gradient(0deg, #0ff2 0 2px, transparent 2px 32px),
               linear-gradient(135deg, #0ff2 0%, #080b1c 100%);
   animation: grid-move 7s linear infinite;
 }
@@ -20,7 +19,6 @@ body {
   0% { background-position: 0 0, 0 0, 0 0; }
   100% { background-position: 32px 32px, 0 32px, 0 0; }
 }
-
 #gameCanvas {
   display: block;
   margin: 0 auto;
@@ -32,7 +30,6 @@ body {
   z-index: 1;
   transition: box-shadow 0.25s;
 }
-
 #ui {
   position: absolute;
   top: 2vw;
@@ -50,15 +47,13 @@ body {
   padding: 1.5em 2em 1em 2em;
   backdrop-filter: blur(6px) brightness(1.08);
 }
-
 #gameTitle {
   font-family: 'Press Start 2P', 'VT323', monospace;
   font-size: 2.2em;
   letter-spacing: 2px;
   line-height: 1.1;
   margin: 0 0 0.5em 0;
-  text-shadow:
-    0 2px 0 #0ff, 0 0 12px #0ff, 0 4px 8px #000c;
+  text-shadow: 0 2px 0 #0ff, 0 0 12px #0ff, 0 4px 8px #000c;
   animation: neon-flicker 3s infinite alternate;
 }
 @keyframes neon-flicker {
@@ -68,7 +63,6 @@ body {
 }
 .void { color: #0ff; filter: drop-shadow(0 0 4px #fff8); }
 .loop { color: #fff; filter: drop-shadow(0 0 10px #0ff8); letter-spacing: 4px; }
-
 #scorePanel {
   display: flex;
   flex-direction: row;
@@ -82,8 +76,7 @@ body {
   border: 1.5px solid #0ff8;
   padding: 0.6em 0;
 }
-#scorePanel p { margin: 0 0.5em; font-family: 'VT323', monospace; font-size: 1.1em; }
-
+#scorePanel p { margin: 0 0.3em; font-family: 'VT323', monospace; font-size: 1.1em; }
 #menuBtns {
   display: flex;
   flex-direction: row;
@@ -112,10 +105,10 @@ body {
   color: #0ff;
   box-shadow: 0 0 24px #0ffb, 0 0 0 4px #fff3;
 }
-
 #upgradePanel {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1.2em;
   margin: 1em 0 0.2em 0;
@@ -144,7 +137,6 @@ body {
   color: #0ff;
   box-shadow: 0 0 32px #0ffb;
 }
-
 #pixel-sep {
   width: 100%;
   height: 8px;
@@ -155,7 +147,43 @@ body {
   opacity: 0.77;
   filter: blur(0.2px);
 }
-
+#statsPanel {
+  display: none;
+  margin-top: 1.2em;
+  background: rgba(0,20,28,0.19);
+  border: 1.5px solid #0ff7;
+  border-radius: 11px;
+  box-shadow: 0 2px 12px #0ff3;
+  padding: 1em 0.3em 1em 0.3em;
+}
+#statsPanel h2 {
+  color: #fff;
+  font-family: 'Press Start 2P', 'VT323', monospace;
+  margin-bottom: 0.6em;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+#statsPanel p {
+  margin: 0.2em 0;
+  font-size: 1em;
+}
+#statsPanel button {
+  margin-top: 0.9em;
+  background: #222;
+  color: #fff;
+  border: 1.7px solid #0ff7;
+  border-radius: 4px;
+  font-family: 'VT323', monospace;
+  font-size: 1em;
+  padding: 0.6em 1.8em;
+  cursor: pointer;
+  box-shadow: 0 0 8px #0ff3;
+  transition: background 0.13s, color 0.13s;
+}
+#statsPanel button:hover {
+  background: #0ff;
+  color: #111;
+}
 @media (max-width: 700px) {
   #ui { padding: 1em 0.5em 0.7em 0.5em; min-width: 0; max-width: 98vw;}
   #gameTitle { font-size: 1.18em; }
