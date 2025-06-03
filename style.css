@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  background: #08081a;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  background: #111122;
+  border: 2px solid #222;
+  box-shadow: 0 0 32px #0ff4;
+}
+
+#ui {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  user-select: none;
+}
+
+#score {
+  font-size: 1.3em;
+  margin: 0.5em 0;
+}
+
+button {
+  background: #0ff;
+  color: #111;
+  border: none;
+  padding: 0.6em 1.4em;
+  border-radius: 6px;
+  margin: 0.4em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 8px #0ff6;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #0cf;
+}
