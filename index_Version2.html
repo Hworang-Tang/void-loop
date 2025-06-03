@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VOID LOOP – A Pure Code Space Survival</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Pixel+Retro Fonts for Minecraft Vibes -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Subtle Minecraft-style grid overlay -->
+  <div id="bg-grid"></div>
+  <canvas id="gameCanvas"></canvas>
+  <div id="ui">
+    <h1 id="gameTitle">
+      <span class="void">VOID</span>
+      <span class="loop">LOOP</span>
+    </h1>
+    <div id="scorePanel">
+      <p id="score">Score: 0</p>
+      <p id="level">Level: 1</p>
+      <p id="best">Best: 0</p>
+    </div>
+    <div id="menuBtns">
+      <button id="startBtn">▶ PLAY</button>
+      <button id="settingsBtn" title="(Coming Soon)">⚙️</button>
+    </div>
+    <div id="upgradePanel" style="display: none;">
+      <button id="upgradeBtn">⬆️ Upgrade Weapon (14 pts)</button>
+      <button id="healBtn">❤️ Heal (12 pts)</button>
+    </div>
+    <!-- Optionally add a pixel-art separator for vibes -->
+    <div id="pixel-sep"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
