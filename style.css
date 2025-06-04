@@ -258,3 +258,95 @@ body {
   background: #0ff;
   color: #111;
 }
+
+/* ... (keep all your current styles above) ... */
+
+/* Auth Modal */
+#authPanel {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(10,19,37,0.92);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-box {
+  background: #10172a;
+  border: 2px solid #0ff6;
+  border-radius: 18px;
+  box-shadow: 0 0 48px #0ff4, 0 0 0 5px #0ff2 inset;
+  padding: 2em 2.6em 2em 2.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8em;
+}
+.auth-box input[type="text"], .auth-box input[type="email"], .auth-box input[type="password"] {
+  font-family: 'VT323', monospace;
+  font-size: 1.1em;
+  padding: 0.5em 0.7em;
+  border-radius: 6px;
+  border: 1.5px solid #0ff8;
+  background: #121b2a;
+  color: #fff;
+  width: 200px;
+  margin-bottom: 0.3em;
+}
+.auth-box input[type="file"] {
+  color: #fff;
+}
+.auth-box button {
+  margin: 0.2em 0.1em;
+  padding: 0.5em 2em;
+}
+#authError {
+  color: #f44;
+  min-height: 1em;
+  font-size: 1em;
+}
+#userPanel {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 1em;
+  font-family: 'VT323', monospace;
+  font-size: 1.1em;
+}
+
+#pauseOverlay {
+  position: fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(10,19,37,0.92);
+  z-index: 200;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.pause-box {
+  background: #10172a;
+  border: 2px solid #0ff6;
+  border-radius: 18px;
+  box-shadow: 0 0 48px #0ff4, 0 0 0 5px #0ff2 inset;
+  padding: 2em 2.6em 2em 2.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8em;
+}
+
+#hearts {
+  display: inline-flex;
+  gap: 0.25em;
+  vertical-align: middle;
+  margin-left: 1em;
+}
+#hearts .heart {
+  width: 24px; height: 24px;
+  background: url('data:image/svg+xml;utf8,<svg fill="red" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.7 73.4C438.6 40.3 389.6 24 339.7 24c-50 0-99 16.3-132.1 49.4L256 112l48.4-38.6C373 40.3 422 24 471.7 73.4z"/></svg>') center/cover no-repeat;
+  filter: drop-shadow(0 0 8px #f44);
+  display: inline-block;
+}
+#hearts .heart.bonus {
+  filter: drop-shadow(0 0 8px #ff0);
+}
