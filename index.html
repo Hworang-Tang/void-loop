@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>VOID LOOP – A Pure Code Space Survival</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Pixel+Retro Fonts for Minecraft Vibes -->
+  <title>VOID LOOP – Pure Code Space Survival</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,7 +20,8 @@
     </div>
     <div id="menuBtns">
       <button id="startBtn">▶ PLAY</button>
-      <button id="settingsBtn" title="(Coming Soon)">⚙️</button>
+      <button id="settingsBtn" title="Settings">⚙️</button>
+      <button id="bombBtn" style="display:none">💣 Bomb (<span id="bombCount">1</span>)</button>
     </div>
     <div id="upgradePanel" style="display: none;">
       <button id="upgradeBtn">⬆️ Upgrade Weapon (14 coins)</button>
@@ -30,6 +30,7 @@
       <button id="slowmoBtn">⌛ Slo-Mo (20 coins)</button>
     </div>
     <div id="pixel-sep"></div>
+    <div id="miniMap" style="display:none"></div>
     <div id="statsPanel" style="display: none;">
       <h2>Stats</h2>
       <p id="statRuns">Runs: 0</p>
@@ -37,6 +38,30 @@
       <p id="statShots">Shots Fired: 0</p>
       <p id="statPowerups">Powerups Collected: 0</p>
       <button id="resetStatsBtn">Reset Stats</button>
+    </div>
+    <div id="settingsPanel" style="display: none;">
+      <h2>Settings</h2>
+      <div class="setting-row">
+        <label for="soundToggle">Sound:</label>
+        <input type="checkbox" id="soundToggle" checked>
+      </div>
+      <div class="setting-row">
+        <label for="musicToggle">Music:</label>
+        <input type="checkbox" id="musicToggle" checked>
+      </div>
+      <div class="setting-row">
+        <label for="difficultySelect">Difficulty:</label>
+        <select id="difficultySelect">
+          <option value="normal">Normal</option>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <label for="gfxToggle">Visual FX:</label>
+        <input type="checkbox" id="gfxToggle" checked>
+      </div>
+      <button id="closeSettingsBtn">Close</button>
     </div>
   </div>
   <script src="game.js"></script>
