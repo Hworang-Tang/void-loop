@@ -4,7 +4,9 @@ body {
   color: #fff;
   font-family: 'Press Start 2P', 'VT323', 'Courier New', Courier, monospace;
   overflow: hidden;
+  touch-action: none;
 }
+
 #bg-grid {
   position: fixed;
   inset: 0;
@@ -29,6 +31,7 @@ body {
   position: relative;
   z-index: 1;
   transition: box-shadow 0.25s;
+  touch-action: none;
 }
 #ui {
   position: absolute;
@@ -49,7 +52,7 @@ body {
 }
 #gameTitle {
   font-family: 'Press Start 2P', 'VT323', monospace;
-  font-size: 2.2em;
+  font-size: 2em;
   letter-spacing: 2px;
   line-height: 1.1;
   margin: 0 0 0.5em 0;
@@ -66,8 +69,9 @@ body {
 #scorePanel {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
   font-size: 1em;
   margin-bottom: 1em;
   text-shadow: 0 2px 4px #222b, 0 0 4px #0ff9;
@@ -80,11 +84,12 @@ body {
 #menuBtns {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1em;
   margin-bottom: 0.4em;
 }
-#startBtn, #settingsBtn {
+#startBtn, #settingsBtn, #bombBtn {
   background: linear-gradient(90deg, #0ffb 40%, #fff2 100%);
   color: #00263d;
   border: 2px solid #0ff8;
@@ -99,12 +104,14 @@ body {
   cursor: pointer;
   transition: background 0.15s, box-shadow 0.18s;
 }
+#bombBtn { background: linear-gradient(90deg, #f00 40%, #fff2 100%); color: #fff; }
 #settingsBtn { padding: 0.7em 1em; min-width: 3em; }
-#startBtn:hover, #settingsBtn:hover {
+#startBtn:hover, #settingsBtn:hover, #bombBtn:hover {
   background: linear-gradient(90deg, #fff 40%, #0ffb 100%);
   color: #0ff;
   box-shadow: 0 0 24px #0ffb, 0 0 0 4px #fff3;
 }
+#bombBtn:hover { background: linear-gradient(90deg, #fff 40%, #f00b 100%); color: #f00; }
 #upgradePanel {
   display: flex;
   flex-direction: row;
@@ -147,8 +154,26 @@ body {
   opacity: 0.77;
   filter: blur(0.2px);
 }
+#miniMap {
+  display: block;
+  margin: 0.8em auto 0.7em auto;
+  background: rgba(0,0,0,0.18);
+  border: 1.5px solid #0ff7;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0ff2;
+  width: 180px; height: 50px;
+  position: relative;
+}
+@media (max-width: 700px) {
+  #ui { padding: 1em 0.5em 0.7em 0.5em; min-width: 0; max-width: 98vw;}
+  #gameTitle { font-size: 1.18em; }
+  #scorePanel { flex-direction: column; gap: 0.4em; padding: 0.4em 0;}
+  #upgradePanel { flex-direction: column; gap: 0.4em; }
+  #pixel-sep { margin: 0.8em 0 0 0; }
+  #statsPanel, #settingsPanel { padding: 0.8em 0.1em 0.8em 0.1em;}
+  #miniMap { display:none !important; }
+}
 #statsPanel {
-  display: none;
   margin-top: 1.2em;
   background: rgba(0,20,28,0.19);
   border: 1.5px solid #0ff7;
@@ -184,10 +209,52 @@ body {
   background: #0ff;
   color: #111;
 }
-@media (max-width: 700px) {
-  #ui { padding: 1em 0.5em 0.7em 0.5em; min-width: 0; max-width: 98vw;}
-  #gameTitle { font-size: 1.18em; }
-  #scorePanel { flex-direction: column; gap: 0.4em; padding: 0.4em 0;}
-  #upgradePanel { flex-direction: column; gap: 0.4em; }
-  #pixel-sep { margin: 0.8em 0 0 0; }
+#settingsPanel {
+  margin-top: 1.2em;
+  background: rgba(0,20,28,0.19);
+  border: 1.5px solid #0ff7;
+  border-radius: 11px;
+  box-shadow: 0 2px 12px #0ff3;
+  padding: 1em 0.3em 1em 0.3em;
+}
+#settingsPanel h2 {
+  color: #fff;
+  font-family: 'Press Start 2P', 'VT323', monospace;
+  margin-bottom: 0.6em;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+.setting-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 0.5em;
+  font-family: 'VT323', monospace;
+  font-size: 1.1em;
+}
+#settingsPanel label {
+  margin-right: 0.8em;
+}
+#settingsPanel input[type="checkbox"], #settingsPanel select {
+  transform: scale(1.18);
+  margin-left: 0.5em;
+}
+#settingsPanel button {
+  margin-top: 0.9em;
+  background: #222;
+  color: #fff;
+  border: 1.7px solid #0ff7;
+  border-radius: 4px;
+  font-family: 'VT323', monospace;
+  font-size: 1em;
+  padding: 0.6em 1.8em;
+  cursor: pointer;
+  box-shadow: 0 0 8px #0ff3;
+  transition: background 0.13s, color 0.13s;
+}
+#settingsPanel button:hover {
+  background: #0ff;
+  color: #111;
 }
