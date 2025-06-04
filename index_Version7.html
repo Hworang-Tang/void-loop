@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VOID LOOP – Pure Code Space Survival</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+  <div id="bg-grid"></div>
+  <canvas id="gameCanvas"></canvas>
+  <div id="ui">
+
+    <!-- Sign Up / Sign In Modal -->
+    <div id="authPanel">
+      <div class="auth-box">
+        <h2>Sign In / Sign Up</h2>
+        <input type="text" id="authName" placeholder="Username" maxlength="16" required>
+        <input type="email" id="authEmail" placeholder="Email" required>
+        <input type="password" id="authPassword" placeholder="Password" required>
+        <input type="file" id="authPic" accept="image/*">
+        <button id="signUpBtn">Sign Up</button>
+        <button id="signInBtn">Sign In</button>
+        <p id="authError"></p>
+      </div>
+    </div>
+
+    <!-- User Info (shown after login) -->
+    <div id="userPanel" style="display:none;">
+      <img id="userPic" src="" alt="profile" width="56" height="56" style="border-radius:50%;border:2px solid #0ff;">
+      <span id="userName"></span>
+      <span id="userEmail"></span>
+      <button id="signOutBtn" title="Sign Out">🚪</button>
+    </div>
+
+    <h1 id="gameTitle"><span class="void">VOID</span> <span class="loop">LOOP</span></h1>
+    <div id="scorePanel">
+      <p id="score">Score: 0</p>
+      <p id="level">Level: 1</p>
+      <p id="coins">Coins: 0</p>
+      <p id="best">Best: 0</p>
+      <div id="hearts"></div>
+    </div>
+    <div id="menuBtns">
+      <button id="startBtn" disabled>▶ PLAY</button>
+      <button id="pauseBtn" style="display:none;">⏸️ Pause</button>
+      <button id="settingsBtn" title="Settings">⚙️</button>
+      <button id="bombBtn" style="display:none">💣 Bomb (<span id="bombCount">1</span>)</button>
+    </div>
+    <div id="pauseOverlay" style="display:none;">
+      <div class="pause-box">
+        <h2>PAUSED</h2>
+        <button id="resumeBtn">▶ Resume</button>
+      </div>
+    </div>
+    <div id="upgradePanel" style="display: none;">
+      <button id="upgradeBtn">⬆️ Upgrade Weapon (14 coins)</button>
+      <button id="healBtn">❤️ Heal (12 coins)</button>
+      <button id="shieldBtn">🛡️ Shield (18 coins)</button>
+      <button id="slowmoBtn">⌛ Slo-Mo (20 coins)</button>
+    </div>
+    <div id="pixel-sep"></div>
+    <div id="miniMap" style="display:none"></div>
+    <div id="statsPanel" style="display: none;">
+      <h2>Stats</h2>
+      <p id="statRuns">Runs: 0</p>
+      <p id="statEnemies">Enemies Defeated: 0</p>
+      <p id="statShots">Shots Fired: 0</p>
+      <p id="statPowerups">Powerups Collected: 0</p>
+      <button id="resetStatsBtn">Reset Stats</button>
+    </div>
+    <div id="settingsPanel" style="display: none;">
+      <h2>Settings</h2>
+      <div class="setting-row">
+        <label for="soundToggle">Sound:</label>
+        <input type="checkbox" id="soundToggle" checked>
+      </div>
+      <div class="setting-row">
+        <label for="musicToggle">Music:</label>
+        <input type="checkbox" id="musicToggle" checked>
+      </div>
+      <div class="setting-row">
+        <label for="difficultySelect">Difficulty:</label>
+        <select id="difficultySelect">
+          <option value="normal">Normal</option>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <label for="gfxToggle">Visual FX:</label>
+        <input type="checkbox" id="gfxToggle" checked>
+      </div>
+      <button id="closeSettingsBtn">Close</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+  <script src="firebase.js"></script>
+</body>
+</html>
