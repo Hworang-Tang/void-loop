@@ -1,3 +1,18 @@
+// --- Firebase Initialization (as provided) ---
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCs5F6ZBljD0TBgVAFLilzl8R8LWHw0wDk",
+  authDomain: "essan-jss.firebaseapp.com",
+  projectId: "essan-jss",
+  storageBucket: "essan-jss.firebasestorage.app",
+  messagingSenderId: "552344380990",
+  appId: "1:552344380990:web:eb13d817ac2054dc76936f"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 // ==== VOID LOOP: Full Nakama Auth Edition ====
 // Works with index.html v7 and style.css v6
 // Auth required, upgrades limited, hearts, pause, everything connected
